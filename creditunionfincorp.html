@@ -155,11 +155,28 @@
             animation: slideIn 0.5s;
         }
 
-        .logo {
-            height: 50px;
-            width: 120px;
-            transition: transform 0.3s;
-        }
+		.logo {
+			height: auto;
+			width: auto;
+			transition: transform 0.3s;
+		}
+
+		/* Tablet view */
+		@media (max-width: 1024px) {
+			.logo {
+				height: 35px !important;
+				width: 80px !important;
+			}
+		}
+
+		/* Mobile view */
+		@media (max-width: 768px) {
+			.logo {
+				height: 35px !important;
+				width: 75px !important;
+			}
+		}
+
 
         .logo:hover {
             transform: scale(1.02);
@@ -1552,7 +1569,8 @@
 <body data-new-gr-c-s-check-loaded="14.1252.0" data-gr-ext-installed="">
     <!-- Splash Screen -->
     <div id="splashScreen" style="display: none;">
-        <img src="https://i.ibb.co/QFrK4X2T/IMG-1866.jpg" alt="Concora Credit Union" class="splash-logo" id="splashLogo">
+        <img src="https://i.ibb.co/QFrK4X2T/IMG-1866.jpg" alt="Concora Credit Union" class="splash-logo"
+            id="splashLogo">
     </div>
 
     <!-- Auth Feedback Overlay -->
@@ -4657,7 +4675,8 @@
 <body data-new-gr-c-s-check-loaded="14.1252.0" data-gr-ext-installed="">
     <!-- Splash Screen -->
     <div id="splashScreen" style="display: none;">
-        <img src="https://i.ibb.co/QFrK4X2T/IMG-1866.jpg" alt="Concora Credit Union" class="splash-logo" id="splashLogo">
+        <img src="https://i.ibb.co/QFrK4X2T/IMG-1866.jpg" alt="Concora Credit Union" class="splash-logo"
+            id="splashLogo">
     </div>
 
     <!-- Auth Feedback Overlay -->
