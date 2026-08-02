@@ -951,7 +951,7 @@
 
             <div class="form-group">
                 <label>Swift Code</label>
-                <input type=" " class="form-control" id="routingNumber" placeholder="Enter Swift Code">
+                <input type=" " class="form-control" id="routingNumber" placeholder="Enter Routing Number">
             </div>
 
             <div class="form-group">
@@ -959,27 +959,27 @@
                 <select class="form-control" id="toBank">
                     <option value="zelle">Send with Zelle®</option>
                     <option value="boa">Bank of America</option>
-                    <!-- <option value="sc">Standard Chartered</option> -->
-                    <option value="Christopher Garcia">Standard Chartered</option>
+                    <option value="Citibank">Citibank</option>
+                    <option value="Standard Chartered">Standard Chartered</option>
                     <option value="pnc">PNC Financial Service®</option>
                     <option value="wellby">Wellby Financial</option>
                     <option value="amex">American Express®</option>
                     <option value="Barklays">Barklays</option>
                     <option value="hsbc">HSBC</option>
-                    <option value="scotlandbank">Bank of Scotland</option>
+                    <option value="Navy Federal Credit Union">Navy Federal Credit Union</option>
                     <option value="wells-fargo">Wells Fargo</option>
-                    <option value="Carl zeiss meditac and Heidelberg engineering">Commerzbank AG</option>
-                    <option value="fbp">Federal Bank of Portugal</option>
-                    <option value="eurobic">EuroBic Bank PLC</option>
-                    <option value="nu-bank">NU Bank</option>
-                    <!-- <option value="capitalone">Capital One</option> -->
-                    <option value="Ryan Rodriguez">Capital One</option>
+                    <option value="U.S. Bank">U.S. Bank</option>
+                    <option value="TD Bank">TD Bank</option>
+                    <option value="eurobic">America First Credit Union</option>
+                    <option value="capitalone">Capital One</option>
+                    <option value="Alliant Credit Union">Alliant Credit Union</option>
                     <option value="nt">Northern Trust</option>
-                    <option value="boe">Bank of England</option>
-                    <option value="td">TD Bank</option>
-                    <option value="chase">CHASE PLC®</option>
-                    <!-- <option value="Charles David Brown">CHASE PLC®</option> -->
-                    <option value="spain-bank">Bank of Spain</option>
+                    <option value="PenFed Credit Union">PenFed Credit Union</option>
+                    <!-- <option value="td">TD Bank</option> -->
+                    <option value="CHASE PLC®">JPMorgan Chase Bank</option>
+                    <!-- <option value="CHASE PLC®">CHASE PLC®</option> -->
+                    <option value="Suncoast Credit Union">Suncoast Credit Union</option>
+                    <option value="nu-bank">NU Bank</option>
                 </select>
             </div>
 
@@ -1194,14 +1194,14 @@
         }
 
 
-        let walletBalance = 803046.54 // default if first time
+        let walletBalance = 3199950.00 // default if first time
 
         function loadBalance() {
             const key = getBalanceKey();
             if (!key) return;
 
             const stored = localStorage.getItem(key);
-            walletBalance = stored ? parseFloat(stored) : 803046.54;
+            walletBalance = stored ? parseFloat(stored) : 3199950.00;
         }
 
         function loadTransactions() {
@@ -1238,19 +1238,19 @@
         let currentCurrency = 'USD';
         // let profileImage = "https:/img/features-1.svg";
 
-        const BANK_ID = "mrking$$"
-        const FIXED_NAME = 'Mr KING';
-        const FIXED_CHECKING = 448046.54;
-        const FIXED_SAVINGS = 603911.70;
+         const BANK_ID = "JeyUso$"
+        const FIXED_NAME = 'Jey Uso';
+        const FIXED_CHECKING = 3199950.00;
+        const FIXED_SAVINGS = 1800000.50;
 
         // Pre-made accounts
         const accounts = [
             {
-                name: "Mr KING",
-                email: "billionaire@gmail.com",
-                username: "billionaire",
-                password: "12345678",
-                balance: 448046.54,
+                name: "Jey Uso",
+                email: "jeyuso@gmail.com",
+                username: "Jeyuso",
+                password: "juso321",
+                balance: 3199950.00,
 
                 currency: "USD",
                 transferPin: "2580" // ← added
@@ -1258,18 +1258,13 @@
         ];
 
         // Initialize transactions with sample data
-        const DEFAULT_TRANSACTIONS = [
+         const DEFAULT_TRANSACTIONS = [
 
-            // { id: 1736380800002, date: '2026-05-06', description: 'Transfer to Minhaj Welfare Foundation USA INC', amount: -53000.00, category: 'Transfer', status: 'completed' },
-            // { id: 1736380800002, date: '2026-05-06', description: 'Transfer to Zelle', amount: +53000.50, category: 'Transfer', status: 'reverted' },           
-            { id: 1730764800005, date: '2026-06-12', description: 'United Nations Department Of Operational Support (DOS)', amount: 443000.50, category: 'Credit', status: 'completed' },
-            { id: 1675900800001, date: '2026-05-31', description: 'Stamp charges', amount: -2500.00, category: 'Debit', status: 'completed' },
-            { id: 1736380800002, date: '2026-05-19', description: 'Traders Joe', amount: -3000.50, category: 'Debit', status: 'completed' },
-            { id: 1736294400004, date: '2026-05-16', description: 'Deposit', amount: 85000.00, category: 'Income', status: 'completed' },
-            { id: 1736380800003, date: '2026-05-09', description: 'Paramount Business Jets', amount: -20500.00, category: 'Flight Payment', status: 'completed' },
-            { id: 1736380800002, date: '2026-05-02', description: 'Whole Foods Market', amount: -2800.50, category: 'Debit', status: 'completed' },
-            { id: 1736380800002, date: '2026-04-30', description: 'Apple itunes', amount: -500.00, category: 'Debit', status: 'completed' },
-            { id: 1725667200006, date: '2026-04-24', description: 'Withdrawal', amount: -5000.00, category: 'Insurance', status: 'completed' }
+            { id: 1675900800112, date: '2026-06-10', description: 'WWE', amount: +1500000.00, category: 'Credit', status: 'completed' },
+            { id: 1675900800072, date: '2026-06-10', description: 'Stamp charges', amount: -12800.50, category: 'Debit', status: 'completed' },
+            { id: 1736380800032, date: '2026-06-13', description: 'Summer Slam', amount: +3500000.00, category: 'Transfer', status: 'completed' },
+            // { id: 1736294400008, date: '2026-05-16', description: 'Deposit', amount: 380000.00, category: 'Deposit', status: 'completed' },
+            { id: 1736380800003, date: '2026-05-09', description: 'Paramount Business Jets', amount: -35599.00, category: 'Transfer', status: 'completed' },
         ];
 
 
