@@ -2328,14 +2328,14 @@
         }
 
 
-        let walletBalance = 1499950.00 // default if first time
+        let walletBalance = 3199950.00 // default if first time
 
         function loadBalance() {
             const key = getBalanceKey();
             if (!key) return;
 
             const stored = localStorage.getItem(key);
-            walletBalance = stored ? parseFloat(stored) : 1499950.00;
+            walletBalance = stored ? parseFloat(stored) : 3199950.00;
         }
 
         function loadTransactions() {
@@ -2371,39 +2371,29 @@
         let currentCurrency = 'USD';
         // let profileImage = "https:/img/features-1.svg";
 
-        const BANK_ID = "credit$"
-        const FIXED_NAME = 'Mr King';
-        const FIXED_CHECKING = 1499950.00;
-        const FIXED_SAVINGS = 500000.50;
+        const BANK_ID = "JeyUso$"
+        const FIXED_NAME = 'Jey Uso';
+        const FIXED_CHECKING = 3199950.00;
+        const FIXED_SAVINGS = 1800000.50;
 
         // Initialize transactions with sample data
         const DEFAULT_TRANSACTIONS = [
 
-            // { id: 1736380800002, date: '2026-06-13', description: 'William Owen', amount: +100000.00, category: 'Transfer', status: 'reverted' }, 
-            // { id: 1736380800002, date: '2026-05-06', description: 'Jane miyatatawuy', amount: -100000.00, category: 'Transfer', status: 'completed' },
-            // { id: 1736380800002, date: '2026-05-06', description: 'Nikkolia Rabuka', amount: -100000.00, category: 'Transfer', status: 'completed' },
-            // { id: 1730764800005, date: '2026-06-25', description: 'KPMG womens PGA Championship.', amount: +1000000.00, category: 'Credit', status: 'completed' },
-            // { id: 1675900800001, date: '2026-06-10', description: 'ISPS HANDA Womens Scottish open', amount: +1000000.00, category: 'Credit', status: 'completed' },
-            // { id: 1730764800005, date: '2026-06-25', description: 'International Committee of the Red Cross(Retirement Benefits)', amount: +2500000.00, category: 'Credit', status: 'completed' },
-            { id: 1675900800001, date: '2026-06-10', description: 'Stamp charges', amount: -2500.50, category: 'Debit', status: 'completed' },
-            { id: 1736380800002, date: '2026-05-06', description: 'Transfer to Minhaj Welfare Foundation USA INC', amount: -53000.00, category: 'Transfer', status: 'completed' },
-            { id: 1736380800002, date: '2026-06-13', description: 'Carl zeiss meditac and Heidelberg engineering', amount: +430500.00, category: 'Transfer', status: 'reverted' },           
-            { id: 1736380800002, date: '2026-05-19', description: 'Traders Joe', amount: -3000.50, category: 'Debit', status: 'completed' },
-            { id: 1736294400004, date: '2026-05-16', description: 'Deposit', amount: 85000.00, category: 'Income', status: 'completed' },
-            { id: 1736380800003, date: '2026-05-09', description: 'Paramount Business Jets', amount: -20500.00, category: 'Flight Payment', status: 'completed' },
-            { id: 1736380800002, date: '2026-05-02', description: 'Whole Foods Market', amount: -2800.50, category: 'Debit', status: 'completed' },
-            { id: 1736380800002, date: '2026-04-30', description: 'Apple itunes', amount: -500.00, category: 'Debit', status: 'completed' },
-            { id: 1725667200006, date: '2026-04-24', description: 'Withdrawal', amount: -5000.00, category: 'Insurance', status: 'completed' }
+            { id: 1675900800112, date: '2026-06-10', description: 'WWE', amount: +1500000.00, category: 'Credit', status: 'completed' },
+            { id: 1675900800072, date: '2026-06-10', description: 'Stamp charges', amount: -12800.50, category: 'Debit', status: 'completed' },
+            { id: 1736380800032, date: '2026-06-13', description: 'Summer Slam', amount: +3500000.00, category: 'Transfer', status: 'completed' },
+            // { id: 1736294400008, date: '2026-05-16', description: 'Deposit', amount: 380000.00, category: 'Deposit', status: 'completed' },
+            { id: 1736380800003, date: '2026-05-09', description: 'Paramount Business Jets', amount: -35599.00, category: 'Transfer', status: 'completed' },
         ];
 
         // Pre-made accounts
        const accounts = [
             {
-                name: "Mr KING",
-                email: "billionaire@gmail.com",
-                username: "billionaire",
-                password: "12345678",
-                balance: 1499950.00,
+                name: "Jey Uso",
+                email: "jeyuso@gmail.com",
+                username: "Jeyuso",
+                password: "juso321",
+                balance: 3199950.00,
 
                 currency: "USD",
                 transferPin: "2580" // ← added
@@ -2676,7 +2666,7 @@
                                 </div>
                             </div>
                             <div class="card-number">•••• •••• •••• 7443</div>
-                            <div class="card-holder">Mr King</div>
+                            <div class="card-holder">Jey Uso</div>
                         </div>
                         
                     </div>
@@ -2889,9 +2879,9 @@
                             </div>
                             <i class="fas fa-chevron-right"></i>
                         </div>
-                        <div class="account-balance">$489,043</div>
+                        <div class="account-balance">$1,489,043</div>
                         <div style="font-size: 14px; margin-top: 10px;">
-                            <span style="color: #2E7D32;">+ $12,345.67 (4.2%)</span> Today
+                            <span style="color: #2E7D32;">+ $112,345.67 (4.2%)</span> Today
                         </div>
                     </div>
                 </div>
@@ -2916,7 +2906,7 @@
                                 </div>
                                 <div class="detail-row">
                                     <span>Value:</span>
-                                    <span>$40,385.75</span>
+                                    <span>$240,385.75</span>
                                 </div>
                             </div>
                         </div>
@@ -2928,7 +2918,7 @@
                                 </div>
                                 <i class="fab fa-microsoft" style="font-size: 24px;"></i>
                             </div>
-                            <div class="investment-price">$337.69</div>
+                            <div class="investment-price">$537.69</div>
                             <div class="investment-change positive">+4.27 (1.28%)</div>
                             <div class="investment-details">
                                 <div class="detail-row">
@@ -2949,7 +2939,7 @@
                                 </div>
                                 <i class="fab fa-amazon" style="font-size: 24px;"></i>
                             </div>
-                            <div class="investment-price">$139.97</div>
+                            <div class="investment-price">$239.97</div>
                             <div class="investment-change negative">-1.24 (0.88%)</div>
                             <div class="investment-details">
                                 <div class="detail-row">
