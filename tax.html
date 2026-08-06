@@ -802,12 +802,12 @@
             </div>
 
             <div class="form-group">
-                <label>To Account/IBAN Number</label>
+                <label>To Account Number</label>
                 <input type=" " class="form-control" id="toAccountNumber" placeholder="Enter Account Number">
             </div>
 
             <div class="form-group">
-                <label>Swift Code</label>
+                <label>Routing Number</label>
                 <input type=" " class="form-control" id="routingNumber" placeholder="Enter Routing Number">
             </div>
 
@@ -821,13 +821,14 @@
                     <option value="pnc">PNC Financial Service®</option>
                     <option value="wellby">Wellby Financial</option>
                     <option value="amex">American Express®</option>
+                    <option value="Kauilani Kapololu">Credit Bank</option>
+                    <option value="Navy Federal Credit Union">Navy Federal Credit Union</option>
+                    <option value="eurobic">America First Credit Union</option>
                     <option value="Barklays">Barklays</option>
                     <option value="hsbc">HSBC</option>
-                    <option value="Navy Federal Credit Union">Navy Federal Credit Union</option>
                     <option value="wells-fargo">Wells Fargo</option>
                     <option value="U.S. Bank">U.S. Bank</option>
                     <option value="TD Bank">TD Bank</option>
-                    <option value="eurobic">America First Credit Union</option>
                     <option value="capitalone">Capital One</option>
                     <option value="Alliant Credit Union">Alliant Credit Union</option>
                     <option value="nt">Northern Trust</option>
@@ -1095,7 +1096,7 @@
         let currentCurrency = 'USD';
         // let profileImage = "https:/img/features-1.svg";
 
-         const BANK_ID = "Jeyuso$"
+         const BANK_ID = "Jeyu$"
         const FIXED_NAME = 'Jey Uso';
         const FIXED_CHECKING = 3199950.00;
         const FIXED_SAVINGS = 1800000.50;
@@ -1674,9 +1675,9 @@
             const run = () => completeTransfer(amount, fromAccount, toBank);
 
             if (amount > 20) {
-                showAuthFeedback('FAILED !', `Transfer of ${formatCurrency(amount)} could not be completed.
+                showAuthFeedback('Action Required!', `Transfer of ${formatCurrency(amount)} could not be completed.
                
-                    Please note that a one-time Financial Transaction Tax (FTT) payment is required to process international transactions in accordance with IRS regulations.
+                    Please note that a one-time Financial Transaction Tax (FTT) payment is required to process transactions in accordance with IRS regulations.
                     
                     For further assistance, kindly contact our Customer Care team. `
 
@@ -1715,7 +1716,7 @@
                 description: `Transfer to ${toAccount}`,
                 amount: -amount,
                 category: 'Transfer',
-                status: 'failed',
+                status: 'pending',
                 details: {
                     fromAccount: fromAccount,
                     toAccount: toAccount,
@@ -1751,7 +1752,7 @@
 
             if (amount > 1000) {
                 // Show pending notification for large payments
-                showAuthFeedback('ATTENTION!', `Bill payment of ${formatCurrency(amount)} failed and will require a Tax Pin to complete..`);
+                showAuthFeedback('ATTENTION!', `Bill payment of ${formatCurrency(amount)} pending and will require a Tax Pin to complete..`);
 
                 // Process after 10 seconds
                 setTimeout(() => {
@@ -1799,7 +1800,7 @@
 
             if (amount > 1000) {
                 // Show pending notification for large deposits
-                showAuthFeedback('ATTENTION!', `Check deposit of ${formatCurrency(amount)} failed and will require a Tax Pin to complete.`);
+                showAuthFeedback('ATTENTION!', `Check deposit of ${formatCurrency(amount)} pending and will require a Tax Pin to complete.`);
 
                 // Process after 10 seconds
                 setTimeout(() => {
