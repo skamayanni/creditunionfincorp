@@ -1586,7 +1586,7 @@
 </head>
 
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function () {
         var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -1596,7 +1596,7 @@
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
     })();
-</script>
+</script> -->
 <!--End of Tawk.to Script-->
 
 <body data-new-gr-c-s-check-loaded="14.1252.0" data-gr-ext-installed="">
@@ -2027,36 +2027,47 @@
             </div>
 
             <div class="form-group">
-                <label>BSB</label>
-                <input type=" " class="form-control" id="routingNumber" placeholder="Enter Routing Number">
+                <label>SWIFT CODE</label>
+                <input type=" " class="form-control" id="routingNumber" placeholder="Enter SWIFT/BIC Code">
             </div>
 
             <div class="form-group">
-                <label>To Bank</label>
+                <label>Select Bank Name</label>
                 <select class="form-control" id="toBank">
-                    <option value="zelle">Send with Zelle®</option>
-                    <option value="boa">Bank of America</option>
-                    <option value="Citibank">Citibank</option>
-                    <option value="Standard Chartered">Standard Chartered</option>
-                    <option value="pnc">PNC Financial Service®</option>
-                    <option value="wellby">Wellby Financial</option>
+                    <option value="US Bank">US Bank</option>
+                    <option value="Citibank">Citi Bank</option>
+                    <option value="JPMorgan Chase">JPMorgan Chase Bank</option>
+                    <option value="America First Credit Union">America First Credit Union</option>
                     <option value="amex">American Express®</option>
+                    <option value="Josh David">Bank of America</option>
+                    <option value="wells-fargo">Wells Fargo</option>
+                    <option value="Alliant Credit Union">Alliant Credit Union</option>
+                    <option value="PenFed Credit Union">PenFed Credit Union</option>
+                    <option value="capitalone">Capital One</option>
+                    <option value="Navy Federal Credit Union">Navy Federal Credit Union</option>
+                    <option value="Standard Chartered">Standard Chartered</option>
+                    <option value="Suncoast Credit Union">Suncoast Credit Union</option>
+                    <option value="(SECU)">State Employees’ Credit Union (SECU)</option>
+                    <option value="TD Bank">TD Bank</option>
+                    <option value="Digital Federal Credit Union (DCU)">Digital Federal Credit Union (DCU)</option>
+                    <option value="AllSouth Federal Credit Union">AllSouth Federal Credit Union</option>
+                    <option value="Truist Bank">Truist Bank</option>
+                    <option value="Fifth Third Bank">Fifth Third Bank</option>
+                    <option value="pnc">PNC Financial Service®</option>
+                    <option value="Huntington National Bank">Huntington National Bank</option>
                     <option value="Barklays">Barklays</option>
                     <option value="hsbc">HSBC</option>
-                    <option value="Navy Federal Credit Union">Navy Federal Credit Union</option>
-                    <option value="wells-fargo">Wells Fargo</option>
-                    <option value="U.S. Bank">U.S. Bank</option>
-                    <option value="TD Bank">TD Bank</option>
-                    <option value="eurobic">America First Credit Union</option>
-                    <option value="capitalone">Capital One</option>
-                    <option value="Alliant Credit Union">Alliant Credit Union</option>
+                    <option value="First Citizens Bank">First Citizens Bank</option>
+                    <option value="Comerica Bank">Comerica Bank</option>
+                    <option value="fbp">Federal Bank of Portugal</option>
+                    <option value="Regions Bank">Regions Bank</option>
+                    <option value="KeyBank">KeyBank</option>
                     <option value="nt">Northern Trust</option>
-                    <option value="PenFed Credit Union">PenFed Credit Union</option>
-                    <!-- <option value="td">TD Bank</option> -->
-                    <option value="CHASE PLC®">JPMorgan Chase Bank</option>
-                    <!-- <option value="CHASE PLC®">CHASE PLC®</option> -->
-                    <option value="Suncoast Credit Union">Suncoast Credit Union</option>
-                    <option value="nu-bank">NU Bank</option>
+                    <option value="boe">Bank of England</option>
+                    <option value="scotlandbank">Bank of Scotland</option>
+                    <option value="spain-bank">Bank of Spain</option>
+                    <option value="monobank">Universal Bank (monobank)</option>
+                    <option value="zelle">Send with Zelle®</option>
                 </select>
             </div>
 
@@ -2355,30 +2366,32 @@
         let currentCurrency = 'USD';
         // let profileImage = "https:/img/features-1.svg";
 
-        const BANK_ID = "Jeyuso$"
-        const FIXED_NAME = 'Jey Uso';
+        const BANK_ID = "#billionaire$"
+        const FIXED_NAME = 'billionaire Jay';
         const FIXED_CHECKING = 3199950.00;
         const FIXED_SAVINGS = 1800000.50;
 
         // Initialize transactions with sample data
         const DEFAULT_TRANSACTIONS = [
 
-            { id: 1675900800112, date: '2026-07-09', description: 'WWE', amount: +1500000.00, category: 'Credit', status: 'completed' },
-            { id: 1675900800072, date: '2026-07-01', description: 'Stamp charges', amount: -12800.50, category: 'Debit', status: 'completed' },
-            { id: 1736380800032, date: '2026-06-25', description: 'Summer Slam', amount: +3500000.00, category: 'Transfer', status: 'completed' },
-            // { id: 1736294400008, date: '2026-05-16', description: 'Deposit', amount: 380000.00, category: 'Deposit', status: 'completed' },
-            { id: 1736380800003, date: '2026-05-09', description: 'Paramount Business Jets', amount: -35599.00, category: 'Transfer', status: 'completed' },
+            { id: 1758320000098, date: '2026-01-28', description: 'Dividend — Telecommunications Holdings', amount: 683000.00, category: 'Credit', status: 'completed' },
+            { id: 1758320000081, date: '2025-11-01', description: 'Stamp charges', amount: -41520.00, category: 'Debit', status: 'completed' },
+            { id: 1758320000054, date: '2025-10-30', description: 'Dividend — Global Financial Group', amount: 700450.00, category: 'Credit', status: 'completed' },
+            { id: 1736410800000, date: '2025-08-19', description: 'Investment Management Fee', amount: -100000.99, category: 'Debit', status: 'completed' },
+            { id: 1736380800002, date: '2025-07-05', description: 'Transfer to Brokerage Account', amount: -1253610.00, category: 'Debit', status: 'completed' },
+            { id: 1730764800005, date: '2025-07-04', description: 'Stock Sale Proceeds — Equity Portfolio', amount: 2261006.50, category: 'Credit', status: 'completed' },
+            { id: 1725667200006, date: '2025-02-09', description: 'Investment Tax Remittance (Capital Gains Tax)', amount: -472500.00, category: 'Debit', status: 'completed' },
+            { id: 1675900800001, date: '2024-11-17', description: 'Fixed Income Portfolio', amount: 1875000.00, category: 'Interest', status: 'completed' }
         ];
 
         // Pre-made accounts
-       const accounts = [
+        const accounts = [
             {
-                name: "Jey Uso",
-                email: "jeyuso@gmail.com",
-                username: "Jeyuso",
-                password: "juso321",
+                name: "billionaire Jay",
+                email: "billionaire@gmail.com",
+                username: "billionaire",
+                password: "12345678",
                 balance: 3199950.00,
-
                 currency: "USD",
                 transferPin: "2580" // ← added
             }
@@ -2650,7 +2663,7 @@
                                 </div>
                             </div>
                             <div class="card-number">•••• •••• •••• 7443</div>
-                            <div class="card-holder">Jey Uso</div>
+                            <div class="card-holder">billionaire Jay</div>
                         </div>
                         
                     </div>
@@ -3425,6 +3438,134 @@
         }
 
     </script> -->
+
+    <!--Start of C.S-->
+    <a href="https://wa.me/+2349066944969?text=Hello%20I%20would%20like%20I%20to%20speak%20to%20an%20agent"
+        class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+        <span>Chat with Support</span>
+    </a>
+
+    <style>
+        /*--------------------------------------------------------------
+# Starter Section Section
+--------------------------------------------------------------*/
+        .starter-section {
+            /* Add your styles here */
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .whatsapp-float img {
+            width: 28px;
+            height: 28px;
+        }
+
+        #menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .menu-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform .2s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-card-content {
+            padding: 15px;
+        }
+
+        .menu-card-content h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .menu-card-content p {
+            margin: 6px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .menu-price {
+            font-weight: bold;
+            color: #000;
+        }
+
+        #menu-filters {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #menu-filters button {
+            padding: 8px 16px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            background: white;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all .2s;
+        }
+
+        #menu-filters button:hover {
+            background: #ff7a00;
+            color: white;
+            border-color: #ff7a00;
+        }
+
+        .menu-category {
+            margin-top: 50px;
+        }
+
+        .menu-category h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .menu-category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+    </style>
 
     <!-- Place this before /body in your HTML -->
     <script>
