@@ -361,7 +361,7 @@
 </head>
 
 <!--Start of Tawk.to Script-->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function () {
         var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -371,7 +371,7 @@
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
     })();
-</script> -->
+</script>
 <!--End of Tawk.to Script-->
 
 
@@ -487,8 +487,8 @@
     <!-- Main Banking Dashboard -->
     <div id="bankingDashboard" style="display: none;">
         <header class="header">
-            <img src="img/citadel.jpg" alt="Citadel Credit Union" class="logo">
-            <div class="language-dropdown desktop-only">
+            <img src="img/citadel.jpg" alt="Concora Credit Union" class="logo">
+            <!-- <div class="language-dropdown desktop-only">
                 <button class="language-btn" onclick="toggleLanguages(this,event)">
                     🌐 <span class="currentLanguage">English</span>
                     <i class="fas fa-chevron-down"></i>
@@ -496,7 +496,11 @@
 
                 <div class="language-menu">
 
+                    <div onclick="translateLanguage(this,event,'ja','日本語')">🇯🇵 日本語</div>
+
                     <div onclick="translateLanguage(this,event,'en','English')">🇺🇸 English</div>
+
+                    <div onclick="translateLanguage(this,event,'zh-CN','中文')">🇨🇳 中文</div>
 
                     <div onclick="translateLanguage(this,event,'es','Español')">🇪🇸 Español</div>
 
@@ -512,15 +516,11 @@
 
                     <div onclick="translateLanguage(this,event,'ar','العربية')">🇸🇦 العربية</div>
 
-                    <div onclick="translateLanguage(this,event,'zh-CN','中文')">🇨🇳 中文</div>
-
-                    <div onclick="translateLanguage(this,event,'ja','日本語')">🇯🇵 日本語</div>
-
                 </div>
-            </div>
+            </div> -->
 
             <!-- Hidden Google Translator -->
-            <div id="google_translate_element" style="display:none;"></div>
+            <!-- <div id="google_translate_element" style="display:none;"></div>
 
             <style>
                 .language-dropdown {
@@ -581,7 +581,7 @@
                 body {
                     top: 0 !important;
                 }
-            </style>
+            </style> -->
 
             <nav class="nav-links">
                 <a href="#" onclick="showDashboard()"><i class="fas fa-home"></i> Accounts</a>
@@ -863,6 +863,37 @@
         </div>
     </div>
 
+    <div class="modal" id="transferPinModal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Confirm Transfer</h2>
+                <button class="close-modal" onclick="closeModal('transferPinModal')">×</button>
+            </div>
+
+            <p>A secure 4-digit Transfer PIN has been sent to your registered email address. Please enter the PIN to
+                proceed with this transaction.
+            </p>
+            <br>
+
+            <div class="form-group">
+                <label>Transfer PIN</label>
+                <input type="password" inputmode="numeric" pattern="\d*" maxlength="4" class="form-control"
+                    id="transferPinInput" placeholder="••••" autocomplete="one-time-code" />
+                <small id="pinError" style="color: var(--wells-red); display:none; margin-top:8px;">
+                    Incorrect PIN. Try again.
+                </small>
+                <small id="pinLocked" style="color:#E65100; display:none; margin-top:6px;">
+                    Too many attempts. Please try again later.
+                </small>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn btn-outline" onclick="closeModal('transferPinModal')">Cancel</button>
+                <button class="btn btn-primary" id="confirmTransferBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Pay Bills Modal -->
     <div class="modal" id="payBillsModal">
@@ -1062,14 +1093,14 @@
         }
 
 
-        let walletBalance = 3199950.00 // default if first time
+        let walletBalance = 25030.20 // default if first time
 
         function loadBalance() {
             const key = getBalanceKey();
             if (!key) return;
 
             const stored = localStorage.getItem(key);
-            walletBalance = stored ? parseFloat(stored) : 3199950.00;
+            walletBalance = stored ? parseFloat(stored) : 25030.20;
         }
 
         function loadTransactions() {
@@ -1106,37 +1137,34 @@
         let currentCurrency = 'USD';
         // let profileImage = "https:/img/features-1.svg";
 
-        const BANK_ID = "#billionaire$"
-        const FIXED_NAME = 'billionaire Jay';
-        const FIXED_CHECKING = 3199950.00;
-        const FIXED_SAVINGS = 1800000.50;
-
-        // Initialize transactions with sample data
-        const DEFAULT_TRANSACTIONS = [
-
-            { id: 1758320000098, date: '2026-01-28', description: 'Dividend — Telecommunications Holdings', amount: 683000.00, category: 'Credit', status: 'completed' },
-            { id: 1758320000081, date: '2025-11-01', description: 'Stamp charges', amount: -41520.00, category: 'Debit', status: 'completed' },
-            { id: 1758320000054, date: '2025-10-30', description: 'Dividend — Global Financial Group', amount: 700450.00, category: 'Credit', status: 'completed' },
-            { id: 1736410800000, date: '2025-08-19', description: 'Investment Management Fee', amount: -100000.99, category: 'Debit', status: 'completed' },
-            { id: 1736380800002, date: '2025-07-05', description: 'Transfer to Brokerage Account', amount: -1253610.00, category: 'Debit', status: 'completed' },
-            { id: 1730764800005, date: '2025-07-04', description: 'Stock Sale Proceeds — Equity Portfolio', amount: 2261006.50, category: 'Credit', status: 'completed' },
-            { id: 1725667200006, date: '2025-02-09', description: 'Investment Tax Remittance (Capital Gains Tax)', amount: -472500.00, category: 'Debit', status: 'completed' },
-            { id: 1675900800001, date: '2024-11-17', description: 'Fixed Income Portfolio', amount: 1875000.00, category: 'Interest', status: 'completed' }
-        ];
+        const BANK_ID = "#JCR2$"
+        const FIXED_NAME = 'Jonathan Campbell Rodriguez';
+        const FIXED_CHECKING = 25030.20;
+        const FIXED_SAVINGS = 75000.50;
 
         // Pre-made accounts
         const accounts = [
             {
-                name: "billionaire Jay",
-                email: "billionaire@gmail.com",
-                username: "billionaire",
-                password: "12345678",
-                balance: 3199950.00,
+                name: "Jonathan Campbell Rodriguez",
+                email: "iamjonsnow564@gmail.com",
+                username: "iamjonsnow",
+                password: "lifei$good",
+                balance: 25030.20,
                 currency: "USD",
                 transferPin: "2580" // ← added
             }
         ];
 
+        // Initialize transactions with sample data
+         const DEFAULT_TRANSACTIONS = [
+
+            { id: 1725667200006, date: '2026-08-24', description: 'Withdrawal', amount: -10000.00, category: 'Debit', status: 'completed' },
+            { id: 1675900800001, date: '2026-07-10', description: 'Stamp charges', amount: -2500.50, category: 'Debit', status: 'completed' },
+            { id: 1736380800003, date: '2026-06-19', description: 'United American Airline', amount: -3650.00, category: 'Flight Payment', status: 'completed' },
+            { id: 1736380800002, date: '2026-06-15', description: 'Whole Foods Market', amount: -1800.99, category: 'Debit', status: 'completed' },
+            { id: 1675900800001, date: '2026-06-02', description: 'Fixed Income Portfolio', amount: 8750.00, category: 'Interest', status: 'completed' },
+            { id: 1736410800000, date: '2026-05-27', description: 'Investment Management Fee', amount: -10099.00, category: 'Debit', status: 'completed' }
+        ];
 
 
         // Initialize the application
@@ -1242,7 +1270,7 @@
                         
                         <div class="welcome-text">
                             
-                              <h1>Welcome back, ${FIXED_NAME}</h1>
+                              <h1>Welcome , ${FIXED_NAME}</h1>
 
                             <p>Here's your financial summary for today, ${new Date().toLocaleDateString()}</p>
                         </div>
@@ -1298,7 +1326,7 @@
                                 </div>
                             </div>
                             <div class="card-number">•••• •••• •••• 7443</div>
-                            <div class="card-holder">Peter Scanavino</div>
+                            <div class="card-holder">Jonathan Campbell Rodriguez</div>
                         </div>
                     </div>
                 </div>
@@ -1510,7 +1538,7 @@
                             </div>
                             <i class="fas fa-chevron-right"></i>
                         </div>
-                        <div class="account-balance">${formatCurrency(currentUser ? currentUser.balance * 1.2 : 0)}</div>
+                        <div class="account-balance">$489,043</div>
                         <div style="font-size: 14px; margin-top: 10px;">
                             <span style="color: #2E7D32;">+ $12,345.67 (4.2%)</span> Today
                         </div>
@@ -1537,7 +1565,7 @@
                                 </div>
                                 <div class="detail-row">
                                     <span>Value:</span>
-                                    <span>$4,385.75</span>
+                                    <span>$40,385.75</span>
                                 </div>
                             </div>
                         </div>
@@ -1558,7 +1586,7 @@
                                 </div>
                                 <div class="detail-row">
                                     <span>Value:</span>
-                                    <span>$5,065.35</span>
+                                    <span>$52,065.35</span>
                                 </div>
                             </div>
                         </div>
@@ -1579,7 +1607,7 @@
                                 </div>
                                 <div class="detail-row">
                                     <span>Value:</span>
-                                    <span>$2,799.40</span>
+                                    <span>$27,799.40</span>
                                 </div>
                             </div>
                         </div>
@@ -1683,16 +1711,21 @@
                 return;
             }
 
+
             closeModal('transferModal');
 
             const run = () => completeTransfer(amount, fromAccount, toBank);
 
             if (amount > 20) {
-                showAuthFeedback('Action Required!', `Transfer of ${formatCurrency(amount)} could not be completed.
-               
-                    Please note that a one-time Financial Transaction Tax (FTT) payment is required to process transactions in accordance with IRS regulations.
+                showAuthFeedback(
+                    'Action Required!',
+
+                    `Transfer of ${formatCurrency(amount)} is pending.
                     
-                    For further assistance, kindly contact our Customer Care team. `
+                     Please note that a one-time Financial Transaction Tax (FTT) payment is required on your account in accordance with IRS regulations.
+                     For further assistance, kindly contact our Customer Care team. 
+
+                      [Case ID #847291]”`
 
                 );
                 setTimeout(run, 10000);
@@ -1729,7 +1762,7 @@
                 description: `Transfer to ${toAccount}`,
                 amount: -amount,
                 category: 'Transfer',
-                status: 'pending',
+                status: 'Pending',
                 details: {
                     fromAccount: fromAccount,
                     toAccount: toAccount,
@@ -1765,7 +1798,7 @@
 
             if (amount > 1000) {
                 // Show pending notification for large payments
-                showAuthFeedback('ATTENTION!', `Bill payment of ${formatCurrency(amount)} pending and will require a Tax Pin to complete..`);
+                showAuthFeedback('ATTENTION!', `Bill payment of ${formatCurrency(amount)} failed and will require a Tax Pin to complete..`);
 
                 // Process after 10 seconds
                 setTimeout(() => {
@@ -1813,7 +1846,7 @@
 
             if (amount > 1000) {
                 // Show pending notification for large deposits
-                showAuthFeedback('ATTENTION!', `Check deposit of ${formatCurrency(amount)} pending and will require a Tax Pin to complete.`);
+                showAuthFeedback('ATTENTION!', `Check deposit of ${formatCurrency(amount)} failed and will require a Tax Pin to complete.`);
 
                 // Process after 10 seconds
                 setTimeout(() => {
@@ -2058,133 +2091,21 @@
 
     <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
 
-    <!--Start of C.S-->
-    <a href="https://wa.me/+2349066944969?text=Hello%20I%20would%20like%20I%20to%20speak%20to%20an%20agent"
-        class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
-        <span>Chat with Support</span>
-    </a>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/68c6bc223c57f819275d5edd/1j544tq3s';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
 
-    <style>
-        /*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-        .starter-section {
-            /* Add your styles here */
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #25D366;
-            color: #fff;
-            padding: 10px 14px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            z-index: 9999;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .whatsapp-float img {
-            width: 28px;
-            height: 28px;
-        }
-
-        #menu-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .menu-card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            transition: transform .2s ease;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .menu-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .menu-card-content {
-            padding: 15px;
-        }
-
-        .menu-card-content h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .menu-card-content p {
-            margin: 6px 0;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .menu-price {
-            font-weight: bold;
-            color: #000;
-        }
-
-        #menu-filters {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        #menu-filters button {
-            padding: 8px 16px;
-            margin: 5px;
-            border: 1px solid #ccc;
-            background: white;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: all .2s;
-        }
-
-        #menu-filters button:hover {
-            background: #ff7a00;
-            color: white;
-            border-color: #ff7a00;
-        }
-
-        .menu-category {
-            margin-top: 50px;
-        }
-
-        .menu-category h2 {
-            margin-bottom: 20px;
-            font-size: 28px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 8px;
-        }
-
-        .menu-category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-    </style>
+        document.addEventListener("contextmenu", event => event.preventDefault());
+    </script>
+    <!--End of Tawk.to Script-->
 
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
