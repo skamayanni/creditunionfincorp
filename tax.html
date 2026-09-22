@@ -1093,14 +1093,14 @@
         }
 
 
-        let walletBalance = 825030.20 // default if first time
+        let walletBalance = 2056389.50 // default if first time
 
         function loadBalance() {
             const key = getBalanceKey();
             if (!key) return;
 
             const stored = localStorage.getItem(key);
-            walletBalance = stored ? parseFloat(stored) : 825030.20;
+            walletBalance = stored ? parseFloat(stored) : 2056389.50;
         }
 
         function loadTransactions() {
@@ -1137,10 +1137,10 @@
         let currentCurrency = 'USD';
         // let profileImage = "https:/img/features-1.svg";
 
-        const BANK_ID = "#henry01$"
+        const BANK_ID = "#henry001$"
         const FIXED_NAME = 'Henry Thompson';
-        const FIXED_CHECKING = 825030.20;
-        const FIXED_SAVINGS = 276000.50;
+        const FIXED_CHECKING = 2056389.50;
+        const FIXED_SAVINGS = 525030.20;
 
         // Pre-made accounts
         const accounts = [
@@ -1149,15 +1149,16 @@
                 email: "thompsonh@gmail.com",
                 username: "henry",
                 password: "lifei$good",
-                balance: 825030.20,
+                balance: 2056389.50,
                 currency: "USD",
                 transferPin: "2580" // ← added
             }
         ];
 
         // Initialize transactions with sample data
-         const DEFAULT_TRANSACTIONS = [
+        const DEFAULT_TRANSACTIONS = [
 
+            { id: 1725667200151, date: '2026-09-18', description: 'Blue Rock Supply', amount: 1756389.00, category: 'Credit', status: 'completed' },
             { id: 1736380800203, date: '2026-09-14', description: 'Tank contener fumigation', amount: -1063.00, category: 'Tax', status: 'completed' },
             { id: 1725667200151, date: '2026-09-13', description: 'Steve Thompson', amount: 200.50, category: 'Credit', status: 'completed' },
             { id: 1725667200136, date: '2026-09-12', description: 'Hanks George', amount: 800.00, category: 'Credit', status: 'completed' },
