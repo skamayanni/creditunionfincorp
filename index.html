@@ -7860,6 +7860,103 @@
                     </div>
                 </div>
 
+                <style>
+                
+                 .language-btn {
+                        background: #0a2948;
+                        color: #ffffff;
+
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        padding: 10px 16px;
+                        border-radius: 8px;
+
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        font-size: 14px;
+                        font-weight: 600;
+
+                        transition: background 0.25s ease, border-color 0.25s ease;
+                    }
+
+                    .language-btn:hover {
+                        background: #12395d;
+                        border-color: #38bdf8;
+                    }
+
+                    .language-btn .currentLanguage {
+                        color: #ffffff;
+                    }
+
+                    .language-menu {
+                        display: none;
+                        position: absolute;
+                        top: 48px;
+                        right: 0;
+                        width: 220px;
+
+                        /* Dropdown background */
+                        background: #0f172a;
+
+                        /* Make the dropdown more polished */
+                        border: 1px solid rgba(255, 255, 255, 0.12);
+                        border-radius: 10px;
+
+                        /* Prevent content from overflowing */
+                        overflow-y: auto;
+                        max-height: 380px;
+
+                        /* Shadow */
+                        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+                        z-index: 9999;
+                    }
+
+                    /* Display dropdown when opened */
+                    .language-menu.show {
+                        display: block;
+                    }
+
+                    /* Individual language options */
+                    .language-menu div {
+                        padding: 13px 18px;
+
+                        /* FIX: Make text clearly visible */
+                        color: #ffffff !important;
+
+                        cursor: pointer;
+                        transition: background 0.2s ease, color 0.2s ease;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 1.5;
+
+                        /* Prevent text from blending into background */
+                        background: transparent;
+                    }
+
+                    /* Hover effect */
+                    .language-menu div:hover {
+                        background: #1e40af;
+                        color: #ffffff !important;
+                    }
+
+                    /* Highlight the currently selected language, if desired */
+                    .language-menu div.active {
+                        background: #12395d;
+                        color: #ffffff !important;
+                    }
+
+                    .goog-te-banner-frame.skiptranslate {
+                        display: none !important;
+                    }
+
+                    body {
+                        top: 0 !important;
+                    }
+                </style>
+
                 <!-- Enhanced Dark Mode Toggle for Mobile -->
                 <div class="pt-4 mt-4 border-t border-primary-700/50">
 
